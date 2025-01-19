@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Function Tester</title>
+</head>
+<body>
+    <h1>JavaScript Function Tester</h1>
+
+    <h2>String Manipulation Functions</h2>
+    <label for="reverseInput">Reverse a String:</label>
+    <input type="text" id="reverseInput">
+    <button onclick="displayReverse()">Reverse</button>
+    <p id="reverseOutput"></p>
+
+    <label for="countInput">Count Characters:</label>
+    <input type="text" id="countInput">
+    <button onclick="displayCount()">Count</button>
+    <p id="countOutput"></p>
+
+    <label for="capitalizeInput">Capitalize Words:</label>
+    <input type="text" id="capitalizeInput">
+    <button onclick="displayCapitalize()">Capitalize</button>
+    <p id="capitalizeOutput"></p>
+
+    <h2>Array Functions</h2>
+    <label for="arrayInput">Array (comma-separated):</label>
+    <input type="text" id="arrayInput">
+    <button onclick="displayMax()">Find Maximum</button>
+    <p id="maxOutput"></p>
+    <button onclick="displayMin()">Find Minimum</button>
+    <p id="minOutput"></p>
+    <button onclick="displaySum()">Sum of Array</button>
+    <p id="sumOutput"></p>
+    <button onclick="displayFilter()">Filter Array</button>
+    <p id="filterOutput"></p>
+
+    <h2>Mathematical Functions</h2>
+    <label for="factorialInput">Factorial of:</label>
+    <input type="number" id="factorialInput">
+    <button onclick="displayFactorial()">Calculate Factorial</button>
+    <p id="factorialOutput"></p>
+
+    <label for="primeInput">Check Prime:</label>
+    <input type="number" id="primeInput">
+    <button onclick="displayPrime()">Check Prime</button>
+    <p id="primeOutput"></p>
+
+    <label for="fibonacciInput">Fibonacci Sequence (terms):</label>
+    <input type="number" id="fibonacciInput">
+    <button onclick="displayFibonacci()">Generate Fibonacci</button>
+    <p id="fibonacciOutput"></p>
+
+    <script>
+        // Existing Functions
+        function reverseString(str) {
+            return str.split('').reverse().join('');
+        }
+        function countCharacters(str) {
+            return str.length;
+        }
+        function capitalizeWords(sentence) {
+            return sentence.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        }
+        function findMaximum(arr) {
+            return Math.max(...arr);
+        }
+        function findMinimum(arr) {
+            return Math.min(...arr);
+        }
+        function sumOfArray(arr) {
+            return arr.reduce((acc, curr) => acc + curr, 0);
+        }
+        function filterArray(arr, condition) {
+            return arr.filter(condition);
+        }
+        function factorial(n) {
+            if (n < 0) return undefined;
+            if (n === 0 || n === 1) return 1;
+            return n * factorial(n - 1);
+        }
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+        function fibonacci(n) {
+            const fib = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+            return fib.slice(0, n);
+        }
+
+        // Display Functions
+        function displayReverse() {
+            const input = document.getElementById('reverseInput').value;
+            document.getElementById('reverseOutput').innerText = reverseString(input);
+        }
+        function displayCount() {
+            const input = document.getElementById('countInput').value;
+            document.getElementById('countOutput').innerText = countCharacters(input);
+        }
+        function displayCapitalize() {
+            const input = document.getElementById('capitalizeInput').value;
+            document.getElementById('capitalizeOutput').innerText = capitalizeWords(input);
+        }
+        function displayMax() {
+            const input = document.getElementById('arrayInput').value.split(',').map(Number);
+            document.getElementById('maxOutput').innerText = findMaximum(input);
+        }
+        function displayMin() {
+            const input = document.getElementById('arrayInput').value.split(',').map(Number);
+            document.getElementById('minOutput').innerText = findMinimum(input);
+        }
+        function displaySum() {
+            const input = document.getElementById('arrayInput').value.split(',').map(Number);
+            document.getElementById('sumOutput').innerText = sumOfArray(input);
+        }
+        function displayFilter() {
+            const input = document.getElementById('arrayInput').value.split(',').map(Number);
+            const condition = num => num > 2; // Example condition
+            document.getElementById('filterOutput').innerText = filterArray(input, condition);
+        }
+        function displayFactorial() {
+            const input = parseInt(document.getElementById('factorialInput').value);
+            document.getElementById('factorialOutput').innerText = factorial(input);
+        }
+        function displayPrime() {
+            const input = parseInt(document.getElementById('primeInput').value);
+            document.getElementById('primeOutput').innerText = isPrime(input);
+        }
+        function displayFibonacci() {
+            const input = parseInt(document.getElementById('fibonacciInput').value);
+            document.getElementById('fibonacciOutput').innerText = fibonacci(input).join(', ');
+        }
+    </script>
+</body>
+</html>
