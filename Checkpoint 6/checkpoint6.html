@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Personal Portfolio</title>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="bg-gray-800 text-white p-4 flex justify-between">
+        <h1 class="text-xl">Abiola Adeyeye</h1>
+        <img src="Asset/Logo.png" alt="Logo" class="h-10">
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center h-64" style="background-image: url('../Checkpoint 4/Asset/Abiola Adeyeye Headshot.jpg');">
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+            <h2 class="text-4xl text-white">Welcome to My Portfolio</h2>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="p-4">
+        <h3 class="text-2xl">Skills</h3>
+        <div class="flex space-x-4">
+            <div class="bg-white p-4 rounded shadow">HTML</div>
+            <div class="bg-white p-4 rounded shadow">CSS</div>
+            <div class="bg-white p-4 rounded shadow">JavaScript</div>
+            <div class="bg-white p-4 rounded shadow">Tailwind CSS</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="p-4">
+        <h3 class="text-2xl">Projects</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded shadow">
+                <h4 class="text-xl">Project Title</h4>
+                <img src="Asset/20200824_191553.jpg" alt="Project Image" class="w-full h-32 object-cover">
+                <p>Description of the project.</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <h4 class="text-xl">Project Title</h4>
+                <img src="Asset/image-450x450.jpg" alt="Project Image" class="w-full h-32 object-cover">
+                <p>Description of the project.</p>
+            </div>
+            <!-- Repeat for more projects -->
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="p-4">
+        <h3 class="text-2xl">Contact Me</h3>
+        <form class="bg-white p-4 rounded shadow">
+            <input type="text" placeholder="Name" class="border p-2 w-full mb-2" required>
+            <input type="email" placeholder="Email" class="border p-2 w-full mb-2" required>
+            <textarea placeholder="Message" class="border p-2 w-full mb-2" required></textarea>
+            <button type="submit" class="bg-gray-800 text-white p-2">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
