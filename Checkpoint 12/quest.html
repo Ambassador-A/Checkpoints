@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Making and Recursion Tasks</title>
+</head>
+<body>
+    <h1>Decision Making and Recursion Tasks</h1>
+
+    <h2>1. Leap Year Checker</h2>
+    <input type="number" id="yearInput" placeholder="Enter a year">
+    <button onclick="checkLeapYear()">Check Leap Year</button>
+    <p id="leapYearResult"></p>
+    <script>
+        function isLeapYear(year) {
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function checkLeapYear() {
+            const year = document.getElementById('yearInput').value;
+            const result = isLeapYear(year) ? "Leap Year" : "Not a Leap Year";
+            document.getElementById('leapYearResult').innerText = result;
+        }
+    </script>
+
+    <h2>2. Ticket Pricing</h2>
+    <input type="number" id="ageInput" placeholder="Enter your age">
+    <button onclick="checkTicketPrice()">Get Ticket Price</button>
+    <p id="ticketPriceResult"></p>
+    <script>
+        function getTicketPrice(age) {
+            if (age <= 12) {
+                return 10; // Children
+            } else if (age >= 13 && age <= 17) {
+                return 15; // Teenagers
+            } else {
+                return 20; // Adults
+            }
+        }
+        function checkTicketPrice() {
+            const age = document.getElementById('ageInput').value;
+            const price = getTicketPrice(age);
+            document.getElementById('ticketPriceResult').innerText = "Ticket Price: $" + price;
+        }
+    </script>
+
+    <h2>3. Fibonacci Sequence</h2>
+    <input type="number" id="fibonacciInput" placeholder="Enter n">
+    <button onclick="getFibonacci()">Get Fibonacci Number</button>
+    <p id="fibonacciResult"></p>
+    <script>
+        function fibonacci(n) {
+            if (n <= 1) {
+                return n;
+            }
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+        function getFibonacci() {
+            const n = document.getElementById('fibonacciInput').value;
+            const result = fibonacci(n);
+            document.getElementById('fibonacciResult').innerText = "Fibonacci Number: " + result;
+        }
+    </script>
+
+    <h2>4. Palindrome Checker</h2>
+    <input type="text" id="palindromeInput" placeholder="Enter a string">
+    <button onclick="checkPalindrome()">Check Palindrome</button>
+    <p id="palindromeResult"></p>
+    <script>
+        function isPalindrome(str) {
+            str = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase(); // Normalize the string
+            function checkPalindrome(s, left, right) {
+                if (left >= right) return true;
+                if (s[left] !== s[right]) return false;
+                return checkPalindrome(s, left + 1, right - 1);
+            }
+            return checkPalindrome(str, 0, str.length - 1);
+        }
+        function checkPalindrome() {
+            const str = document.getElementById('palindromeInput').value;
+            const result = isPalindrome(str) ? "Palindrome" : "Not a Palindrome";
+            document.getElementById('palindromeResult').innerText = result;
+        }
+    </script>
+</body>
+</html>
